@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Progressive Web App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#007bff">
+  </head>
+  <body>
+    <h1>Welcome to my PWA!</h1>
+    <p>This is a basic example of a Progressive Web App.</p>
+    
+    <!-- Add your app content here -->
+
+    <!-- Add the service worker script -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((reg) => {
+              console.log('Service worker registered.', reg);
+            })
+            .catch((err) => {
+              console.error('Service worker registration failed.', err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
